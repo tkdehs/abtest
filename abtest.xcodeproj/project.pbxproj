@@ -13,11 +13,15 @@
 		F2CDD0E128ECF79100CA97B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CDD0DF28ECF79100CA97B1 /* Main.storyboard */; };
 		F2CDD0E328ECF79200CA97B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CDD0E228ECF79200CA97B1 /* Assets.xcassets */; };
 		F2CDD0E628ECF79200CA97B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CDD0E428ECF79200CA97B1 /* LaunchScreen.storyboard */; };
-		F2CDD0EF28ED1CC200CA97B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CDD0EE28ED1CC200CA97B1 /* GoogleService-Info.plist */; };
 		F2CDD0F228ED21FF00CA97B1 /* Util_Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0F128ED21FF00CA97B1 /* Util_Log.swift */; };
 		F2CDD0F428ED222600CA97B1 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0F328ED222600CA97B1 /* Define.swift */; };
 		F2CDD0F628ED313B00CA97B1 /* Util_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0F528ED313B00CA97B1 /* Util_String.swift */; };
 		F2CDD0F828ED33D500CA97B1 /* Util_UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0F728ED33D500CA97B1 /* Util_UIColor.swift */; };
+		F2CDD0FA28ED45CF00CA97B1 /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0F928ED45CF00CA97B1 /* TargetViewController.swift */; };
+		F2CDD0FC28ED4B3400CA97B1 /* Util_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0FB28ED4B3400CA97B1 /* Util_UIButton.swift */; };
+		F2CDD0FF28ED4DC400CA97B1 /* BtnViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD0FE28ED4DC400CA97B1 /* BtnViewViewController.swift */; };
+		F2CDD10028ED515300CA97B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CDD0EE28ED1CC200CA97B1 /* GoogleService-Info.plist */; };
+		F2CDD10228ED533D00CA97B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CDD10128ED533D00CA97B1 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		F2CDD0F328ED222600CA97B1 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		F2CDD0F528ED313B00CA97B1 /* Util_String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util_String.swift; sourceTree = "<group>"; };
 		F2CDD0F728ED33D500CA97B1 /* Util_UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util_UIColor.swift; sourceTree = "<group>"; };
+		F2CDD0F928ED45CF00CA97B1 /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
+		F2CDD0FB28ED4B3400CA97B1 /* Util_UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util_UIButton.swift; sourceTree = "<group>"; };
+		F2CDD0FE28ED4DC400CA97B1 /* BtnViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnViewViewController.swift; sourceTree = "<group>"; };
+		F2CDD10128ED533D00CA97B1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +98,8 @@
 			children = (
 				F2CDD0F028ED21F100CA97B1 /* Util */,
 				F2CDD0ED28ED1CA900CA97B1 /* Common */,
+				F2CDD0FD28ED4B8600CA97B1 /* View */,
 				F2CDD0D928ECF79100CA97B1 /* AppDelegate.swift */,
-				F2CDD0DD28ECF79100CA97B1 /* ViewController.swift */,
 				F2CDD0DF28ECF79100CA97B1 /* Main.storyboard */,
 				F2CDD0E228ECF79200CA97B1 /* Assets.xcassets */,
 				F2CDD0E428ECF79200CA97B1 /* LaunchScreen.storyboard */,
@@ -112,11 +120,31 @@
 		F2CDD0F028ED21F100CA97B1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F2CDD0FB28ED4B3400CA97B1 /* Util_UIButton.swift */,
 				F2CDD0F528ED313B00CA97B1 /* Util_String.swift */,
 				F2CDD0F128ED21FF00CA97B1 /* Util_Log.swift */,
 				F2CDD0F728ED33D500CA97B1 /* Util_UIColor.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		F2CDD0FD28ED4B8600CA97B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2CDD10328ED534300CA97B1 /* Base */,
+				F2CDD0DD28ECF79100CA97B1 /* ViewController.swift */,
+				F2CDD0F928ED45CF00CA97B1 /* TargetViewController.swift */,
+				F2CDD0FE28ED4DC400CA97B1 /* BtnViewViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2CDD10328ED534300CA97B1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F2CDD10128ED533D00CA97B1 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2CDD10028ED515300CA97B1 /* GoogleService-Info.plist in Resources */,
 				F2CDD0E628ECF79200CA97B1 /* LaunchScreen.storyboard in Resources */,
-				F2CDD0EF28ED1CC200CA97B1 /* GoogleService-Info.plist in Resources */,
 				F2CDD0E328ECF79200CA97B1 /* Assets.xcassets in Resources */,
 				F2CDD0E128ECF79100CA97B1 /* Main.storyboard in Resources */,
 			);
@@ -237,8 +265,12 @@
 			files = (
 				F2CDD0F628ED313B00CA97B1 /* Util_String.swift in Sources */,
 				F2CDD0F828ED33D500CA97B1 /* Util_UIColor.swift in Sources */,
+				F2CDD0FF28ED4DC400CA97B1 /* BtnViewViewController.swift in Sources */,
 				F2CDD0F228ED21FF00CA97B1 /* Util_Log.swift in Sources */,
+				F2CDD0FA28ED45CF00CA97B1 /* TargetViewController.swift in Sources */,
+				F2CDD10228ED533D00CA97B1 /* BaseViewController.swift in Sources */,
 				F2CDD0DE28ECF79100CA97B1 /* ViewController.swift in Sources */,
+				F2CDD0FC28ED4B3400CA97B1 /* Util_UIButton.swift in Sources */,
 				F2CDD0DA28ECF79100CA97B1 /* AppDelegate.swift in Sources */,
 				F2CDD0F428ED222600CA97B1 /* Define.swift in Sources */,
 			);

@@ -11,4 +11,6 @@ target 'abtest' do
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'FirebaseRemoteConfig'
+  pod 'SnapKit'
 end

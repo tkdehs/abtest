@@ -13,7 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     /// 메인 윈도우
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-
+    
+    /// 메인 네비 컨트롤러
+    var ncMain: UINavigationController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.window?.rootViewController = ViewController()
         self.window?.makeKeyAndVisible()
         self.setApplication(application)
-        
         return true
     }
     
@@ -53,5 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 세로방향 고정
         return UIInterfaceOrientationMask.portrait
     }
+    
+    /// 메인 프로세스 실행
+    func startMainProcess() {
+        guard let window = self.window else {
+            return
+        }
+        let transition = CATransition()
+        transition.type = .reveal
+        transition.subtype = .fromRight
+        transition.duration = 0.2
+        window.layer.add(transition, forKey: kCATransition)
+        self.ncMain = UINavigationController.init(rootViewController:  BtnViewViewController())
+        self.ncMain?.isNavigationBarHidden = true
+        window.rootViewController = self.ncMain
+        window.makeKeyAndVisible()
+    }
+    
 }
 
