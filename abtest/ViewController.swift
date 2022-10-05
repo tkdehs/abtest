@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // AB TEST ViewController
+        DLog("ViewController init ")
+        self.view.backgroundColor = UIColor.init(hex: "#FFFFFF")
     }
     
 }
