@@ -24,37 +24,43 @@ class BtnViewViewController: BaseViewController {
         let remoteConfigSettings = RemoteConfigSettings()
         remoteConfig.configSettings = remoteConfigSettings
         
-        let btnPositionRemote = remoteConfig.configValue(forKey: "button_position")
-        guard let btnPosition = btnPositionRemote.stringValue else { return }
-        
-        DLog("addButton \(btnPosition)")
-        let btn = UIButton()
-        btn.setTitle("\(btnPosition) Btn", for: .normal)
-        btn.setTitleColor(UIColor.init(hex: "#ffffff"), for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        btn.backgroundColor = UIColor.init(hex: "#ff0000")
-        self.view.addSubview(btn)
-        if btnPosition == "bottom" {
-            btn.snp.makeConstraints { make in
-                make.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(20)
-                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
-                make.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-20)
-                make.height.equalTo(40)
+        remoteConfig.fetch { (state, error) in
+            if state == .success {
+                remoteConfig.fetchAndActivate()
+                
+                let btnPositionRemote = remoteConfig.configValue(forKey: "button_position")
+                guard let btnPosition = btnPositionRemote.stringValue else { return }
+                
+                DLog("addButton \(btnPosition)")
+                let btn = UIButton()
+                btn.setTitle("\(btnPosition) Btn", for: .normal)
+                btn.setTitleColor(UIColor.init(hex: "#ffffff"), for: .normal)
+                btn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+                btn.backgroundColor = UIColor.init(hex: "#ff0000")
+                self.view.addSubview(btn)
+                if btnPosition == "bottom" {
+                    btn.snp.makeConstraints { make in
+                        make.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(20)
+                        make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+                        make.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-20)
+                        make.height.equalTo(40)
+                    }
+                } else {
+                    btn.snp.makeConstraints { make in
+                        make.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(20)
+                        make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+                        make.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-20)
+                        make.height.equalTo(40)
+                    }
+                }
+                Analytics.setUserProperty(btnPosition, forName: "experimentGroup")
+                Analytics.logEvent("buttonShown", parameters: nil)
+                
+                btn.addTarget {
+                    let vc = TargetViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
-        } else {
-            btn.snp.makeConstraints { make in
-                make.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leading).offset(20)
-                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-                make.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailing).offset(-20)
-                make.height.equalTo(40)
-            }
-        }
-        Analytics.setUserProperty(btnPosition, forName: "experimentGroup")
-        Analytics.logEvent("buttonShown", parameters: nil)
-        
-        btn.addTarget {
-            let vc = TargetViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
